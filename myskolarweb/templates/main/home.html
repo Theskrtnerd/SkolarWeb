@@ -1,16 +1,19 @@
 {% extends 'main/base.html' %}
 {% block content %}
+<div class="row">
     {% for post in posts %}
-    <div class="card" style="width: 18rem;">
-        <img alt="bruh" class="card-img-top" src="{{post.titleimg.url}}" />
-        <div class="card-body">
-          <a href="{% url 'post' post.id %}" class="card-title">{{post.title}}</a>
-          <p class="card-text">{{post.description}}</p>
-          {% for tag in post.tags.all %}
-            <p class="card-text">{{tag}}</p>
-          {%endfor%}
-        </div>
+    <div class="col-sm-6">
+      <div class="card">
+          <img alt="bruh" class="card-img-top" src="{{post.titleimg.url}}" />
+          <div class="card-body">
+            <a href="{% url 'post' post.id %}" class="card-title">{{post.title}}</a>
+            <p class="card-text">{{post.description}}</p>
+            {% for tag in post.tags.all %}
+              <p class="card-text">{{tag}}</p>
+            {%endfor%}
+          </div>
+      </div>  
     </div>
-  
-    {% endfor %}   
+    {% endfor %} 
+</div>  
 {% endblock %}
