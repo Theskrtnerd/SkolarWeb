@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'pagedown.apps.PagedownConfig',
     'mypostapp',
     'markdownx',
-    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -125,8 +124,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 PAGEDOWN_IMAGE_UPLOAD_ENABLED=True
-
-TAGGIT_CASE_INSENSITIVE = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

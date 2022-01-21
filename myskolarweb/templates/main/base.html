@@ -11,7 +11,7 @@
 </head>
 <body>
     <nav class="navbar">
-      <a href="#home" id="navbar__logo"><b>SKOLAR</b></a>
+      <a href="{%url 'home'%}" id="navbar__logo"><b>SKOLAR</b></a>
       <div class="navbar__container">
           <div class="navbar__toggle" id="mobile_menu">
               <span class="bar"></span>
@@ -20,7 +20,7 @@
           </div>
           <ul class="navbar__menu">
               <li class="navbar__item">
-                  <a href="#home" class="navbar__links" id="home-page">Home</a>
+                  <a href="#" class="navbar__links" id="home-page">Home</a>
               </li>
               <li class="navbar__item">
                   <a href="#home" class="navbar__links" id="about-page">About</a>
@@ -30,7 +30,10 @@
               </li> 
           </ul>
       </div>
-      <input type="text" placeholder="Search..." class= "searchbox">
+      <form action="{% url 'search_post' %}" method ="GET">
+          <input type="text" name="search" placeholder="Search..." aria-label="Search">
+          <button type="submit">Search</button>
+      </form>
     </nav>
     <div>
         {% block content %}

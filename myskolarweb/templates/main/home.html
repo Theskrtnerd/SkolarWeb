@@ -8,9 +8,6 @@
           <div class="card-body">
             <a href="{% url 'post' post.id %}" class="card-title">{{post.title}}</a>
             <p class="card-text">{{post.description}}</p>
-            {% for tag in post.tags.all %}
-              <p class="card-text">{{tag}}</p>
-            {%endfor%}
           </div>
       </div>  
     </div>
