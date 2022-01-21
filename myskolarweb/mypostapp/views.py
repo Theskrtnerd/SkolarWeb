@@ -24,5 +24,5 @@ def blog_detail(request, id):
 def search_post(request):
     if request.method == "GET":
         search = request.GET.get('search').lower()
-        posts = Post.objects.all().filter(Q(title__contains=search) | Q(description__contains=search)) 
-        return render(request, 'main/search_post.html', {'posts': posts})
+        posts = Post.objects.all().filter(Q(title__contains=search) | Q(description__contains=search) | Q(content__contains=search)) 
+        return render(request, 'main/search.html', {'posts': posts})
