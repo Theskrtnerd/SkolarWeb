@@ -3,7 +3,6 @@ from django.shortcuts import render, get_object_or_404
 import mistune
 from django.db.models import Q
 from .models import Post
-from taggit.models import Tag
 # Create your views here.
 class MyCustomRenderer(mistune.HTMLRenderer):
     def image(self, src, title, alt_text):
@@ -11,10 +10,9 @@ class MyCustomRenderer(mistune.HTMLRenderer):
 
 def blog_view(request):
     posts = Post.objects.all()
-    tags = Tag.objects.all()
-    return render(request, 'main/home.html', {'posts': posts, 'tags': tags})
+    return render(request, 'main/home.html', {'posts': posts})
 
-def blog_detail(request, id):
+def blog_detail(request, id, **kwargs):
     post = get_object_or_404(Post, id=id)
     renderer = MyCustomRenderer()
     markdown = mistune.Markdown(renderer=renderer)

@@ -2,5 +2,6 @@
 {% block content %}
 {% autoescape off %}
     <h3>{{post.content}}</h3>  
-{% endautoescape %} 
+{% endautoescape %}
+<div class="fb-comments" data-href="{% url 'post' post.id post.slug %}" data-width="" data-numposts="5"></div>
 {% endblock %}
