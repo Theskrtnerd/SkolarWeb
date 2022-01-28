@@ -1,5 +1,7 @@
 {% extends 'main/base.html' %}
 {% block content %}
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v12.0" nonce="oPG1IguL"></script>
 {% autoescape off %}
     <h3>{{post.content}}</h3>  
 {% endautoescape %}

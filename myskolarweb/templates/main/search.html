@@ -8,14 +8,14 @@
                     <div class="card">
                         <img alt="bruh" class="card-img-top" src="{{post.titleimg.url}}" />
                         <div class="card-body">
-                        <a href="{% url 'post' post.id %}" class="card-title">{{post.title}}</a>
+                        <a href="{% url 'post' post.id post.slug %}" class="card-title">{{post.title}}</a>
                         <p class="card-text">{{post.description}}</p>
                         </div>
-                    </div>  
+                    </div>
                 </div>
             {% endfor %}
             {% else %}
             <div>Nothing Found!</div>
-        {% endif %}            
+        {% endif %}
     </center>
 {% endblock %}
