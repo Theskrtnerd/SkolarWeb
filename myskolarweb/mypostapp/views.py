@@ -19,9 +19,16 @@ def blog_detail(request, id, **kwargs):
     markdown = mistune.Markdown(renderer=renderer)
     post.content = markdown(post.content)
     return render(request, 'main/post.html', {'post': post})
-
 def search_post(request):
     if request.method == "GET":
         search = request.GET.get('search').lower()
         posts = Post.objects.all().filter(Q(title__contains=search) | Q(description__contains=search) | Q(content__contains=search)) 
         return render(request, 'main/search.html', {'posts': posts})
+
+def filter_post(request):
+    if request.method == "GET":
+        tags = request.GET.getlist("tags")
+        mytags = Category.objects.all()
+        print(tags)
+        posts = Post.objects.filter(tags__title__in=tags).distinct()
+        return render(request, 'main/home.html', {'posts': posts, 'tags':mytags})

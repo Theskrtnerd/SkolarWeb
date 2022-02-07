@@ -24,4 +24,5 @@ urlpatterns = [
     path('',views.blog_view, name='home'),
     path('<int:id>/<slug:slug>/', views.blog_detail, name='post'),
     path('search/',views.search_post, name='search_post'),
+    path('filter_post/',views.filter_post, name='filter_post'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
