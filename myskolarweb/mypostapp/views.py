@@ -29,6 +29,7 @@ def filter_post(request):
     if request.method == "GET":
         tags = request.GET.getlist("tags")
         mytags = Category.objects.all()
-        print(tags)
-        posts = Post.objects.filter(tags__title__in=tags).distinct()
+        posts = Post.objects.all()
+        for tag in tags:
+            posts = posts.filter(tags__title__contains=tag)
         return render(request, 'main/home.html', {'posts': posts, 'tags':mytags})
